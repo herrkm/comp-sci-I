@@ -16,20 +16,27 @@
   # Check for compile-time errors and runtime errors first,
   # but there may be logic errors as well.
 
-input("Please enter the day of the week.\n")
-input("Please enter today's numeric date.\n")
-input("Please enter the current month.\n")
-input("Please enter the current four-digit year.\n")
+# fails to assign results of input to a variable causing compile-time errors below
+# input("Please enter the day of the week.\n")
+# input("Please enter today's numeric date.\n")
+# input("Please enter the current month.\n")
+# input("Please enter the current four-digit year.\n")
 
-date_amer = day + "," + month + "" + date + "," + year
-date_euro = day + " " + date + " " + month + "" + year
+day = input("Please enter the day of the week.\n")
+date = input("Please enter today's numeric date.\n")
+month = input("Please enter the current month.\n")
+year = input("Please enter the current four-digit year.\n")
+
+# logic errors from missing spaces
+date_amer = day + ", " + month + " " + date + ", " + year
+date_euro = day + " " + date + " " + month + " " + year
 
 print("American format of today's date:")
 print(date_amer)
 
-
+# logic error from use of date_amer instead of date_euro
 print("European format of today's date:")
-print(date_amer)
+print(date_euro)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,13 +49,16 @@ print(date_amer)
   # Calculate the cost of the trip
   # Display the cost, including a dollar sign
 
-# distance = input("Please enter the length of your trip in miles.\n")
-# gas_price = input("Please enter the current price of gas.\n")
-# mpg = input("Please enter your car's fuel efficiency in miles per gallon.\n")
+distance = input("Please enter the length of your trip in miles.\n")
+gas_price = input("Please enter the current price of gas.\n")
+mpg = input("Please enter your car's fuel efficiency in miles per gallon.\n")
 
-# gallons = distance / mpg
-# price = gallons * gas_price
-# print("The trip will cost $" + price)
+# can't calculate with strings - convert to float
+gallons = float(distance) / float(mpg)
+price = gallons * float(gas_price)
+
+# can't add float to strings - convert to string
+print("The trip will cost $" + str(price))
 
 
 
